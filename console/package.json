@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@halo-dev/components": "^1.0.0",
-    "@halo-dev/console-shared": "^2.0.0",
+    "@halo-dev/console-shared": "^2.0.1",
     "vue": "^3.2.41"
   },
   "devDependencies": {
