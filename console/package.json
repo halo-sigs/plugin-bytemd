@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@halo-dev/components": "^1.0.0",
-    "@halo-dev/console-shared": "^2.0.1",
+    "@halo-dev/console-shared": "^2.0.0",
+    "@toast-ui/editor": "^3.2.1",
     "vue": "^3.2.41"
   },
   "devDependencies": {
