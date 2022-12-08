@@ -1,4 +1,4 @@
-package run.halo.starter;
+package run.halo.tui.editor;
 
 import org.pf4j.PluginWrapper;
 import org.springframework.stereotype.Component;
@@ -7,13 +7,13 @@ import run.halo.app.extension.SchemeManager;
 import run.halo.app.plugin.BasePlugin;
 
 /**
- * @author guqing
+ * @author ryanwang
  * @since 2.0.0
  */
 @Component
-public class StarterPlugin extends BasePlugin {
+public class TuiEditorPlugin extends BasePlugin {
 
-    public StarterPlugin(PluginWrapper wrapper) {
+    public TuiEditorPlugin(PluginWrapper wrapper) {
         super(wrapper);
     }
 
