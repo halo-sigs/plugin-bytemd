@@ -11,9 +11,13 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@bytemd/plugin-gfm": "^1.17.4",
+    "@bytemd/vue-next": "^1.17.4",
     "@halo-dev/components": "^1.0.0",
     "@halo-dev/console-shared": "^2.0.0",
     "@toast-ui/editor": "^3.2.1",
+    "bytemd": "^1.17.4",
+    "github-markdown-css": "^5.1.0",
     "vue": "^3.2.41"
   },
   "devDependencies": {

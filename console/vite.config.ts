@@ -12,6 +12,9 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  define: {
+    "process.env": process.env,
+  },
   build: {
     outDir: fileURLToPath(
       new URL("../src/main/resources/console", import.meta.url)
@@ -26,7 +29,7 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "vue",
-        "@halo-dev/shared",
+        "@halo-dev/console-shared",
         "@halo-dev/components",
         "vue-router",
       ],
@@ -38,6 +41,7 @@ export default defineConfig({
           "@halo-dev/console-shared": "HaloConsoleShared",
         },
         extend: true,
+        generatedCode: "es5",
       },
     },
   },
