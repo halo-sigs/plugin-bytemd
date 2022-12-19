@@ -37,6 +37,7 @@ const handleChange = (v: string) => {
 <style>
 .bytemd {
   height: 100%;
+  border: none;
 }
 .bytemd.bytemd-fullscreen {
   z-index: 9999;

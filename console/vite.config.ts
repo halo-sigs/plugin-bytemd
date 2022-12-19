@@ -22,7 +22,7 @@ export default defineConfig({
     emptyOutDir: true,
     lib: {
       entry: "src/index.ts",
-      name: "PluginTuiEditor",
+      name: "PluginBytemd",
       formats: ["iife"],
       fileName: () => "main.js",
     },

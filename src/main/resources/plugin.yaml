@@ -1,7 +1,7 @@
 apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
-  name: PluginTuiEditor
+  name: PluginBytemd
 spec:
   enabled: true
   version: 1.0.0-SNAPSHOT
@@ -10,10 +10,10 @@ spec:
     name: Halo OSS Team
     website: https://github.com/halo-dev
   logo: https://halo.run/logo
-  settingName: plugin-tui-editor-settings
-  configMapName: plugin-tui-editor-configMap
-  homepage: https://github.com/halo-dev/plugin-tui.editor
-  displayName: "tui.editor"
-  description: "对 tui.editor 的集成，让文章支持 Markdown 编辑"
+  settingName: plugin-bytemd-settings
+  configMapName: plugin-bytemd-configMap
+  homepage: https://github.com/ruibaby/plugin-bytemd
+  displayName: "bytemd"
+  description: "对 bytemd 的集成，让文章支持 Markdown 编辑"
   license:
     - name: "MIT"

@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group 'run.halo.tui.editor'
+group 'run.halo.bytemd'
 sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
