@@ -3,26 +3,36 @@ import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
+import { getProcessor } from "bytemd";
 
 const plugins = [gfm()];
 
-defineProps({
-  modelValue: {
+const props = defineProps({
+  raw: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  content: {
     type: String,
     required: false,
     default: "",
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:raw", "update:content"]);
 
 const handleChange = (v: string) => {
-  emit("update:modelValue", v);
+  emit("update:raw", v);
+
+  const processor = getProcessor({ plugins: plugins }).processSync(props.raw);
+
+  emit("update:content", processor.toString());
 };
 </script>
 
 <template>
-  <Editor :value="modelValue" :plugins="plugins" @change="handleChange" />
+  <Editor :value="raw" :plugins="plugins" @change="handleChange" />
 </template>
 <style>
 .bytemd {

@@ -8,6 +8,7 @@ export default definePlugin({
       return [
         {
           name: "tui.editor",
+          displayName: "Tui Editor",
           component: markRaw(TuiEditor),
           rawType: "markdown",
         },
