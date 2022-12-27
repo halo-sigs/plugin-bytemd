@@ -8,7 +8,7 @@ export default definePlugin({
       return [
         {
           name: "bytemd",
-          displayName: "Bytemd",
+          displayName: "ByteMD",
           component: markRaw(bytemd),
           rawType: "markdown",
         },

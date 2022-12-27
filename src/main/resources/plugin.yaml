@@ -9,11 +9,9 @@ spec:
   author:
     name: Halo OSS Team
     website: https://github.com/halo-dev
-  logo: https://halo.run/logo
-  settingName: plugin-bytemd-settings
-  configMapName: plugin-bytemd-configMap
+  logo: logo.png
   homepage: https://github.com/ruibaby/plugin-bytemd
-  displayName: "bytemd"
-  description: "对 bytemd 的集成，让文章支持 Markdown 编辑"
+  displayName: "ByteMD"
+  description: "对 ByteMD 的集成，让文章支持 Markdown 编辑"
   license:
     - name: "MIT"
