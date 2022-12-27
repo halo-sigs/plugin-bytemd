@@ -20,10 +20,15 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:raw", "update:content"]);
+const emit = defineEmits<{
+  (event: "update:raw", value: string): void;
+  (event: "update:content", value: string): void;
+  (event: "update", value: string): void;
+}>();
 
 const handleChange = (v: string) => {
   emit("update:raw", v);
+  emit("update", v);
 
   const processor = getProcessor({ plugins: plugins }).processSync(props.raw);
 

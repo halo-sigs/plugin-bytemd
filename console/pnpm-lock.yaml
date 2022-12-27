@@ -4,7 +4,7 @@ specifiers:
   '@bytemd/plugin-gfm': ^1.17.4
   '@bytemd/vue-next': ^1.17.4
   '@halo-dev/components': ^1.0.0
-  '@halo-dev/console-shared': ^2.0.0
+  '@halo-dev/console-shared': ^2.1.0-rc.1
   '@rushstack/eslint-patch': ^1.2.0
   '@toast-ui/editor': ^3.2.1
   '@types/jsdom': ^20.0.0
@@ -32,7 +32,7 @@ dependencies:
   '@bytemd/plugin-gfm': 1.17.4_bytemd@1.17.4
   '@bytemd/vue-next': 1.17.4_vue@3.2.41
   '@halo-dev/components': 1.0.0_vue@3.2.41
-  '@halo-dev/console-shared': 2.0.1_vue@3.2.41
+  '@halo-dev/console-shared': 2.1.0-rc.1_vue@3.2.41
   '@toast-ui/editor': 3.2.1
   bytemd: 1.17.4
   github-markdown-css: 5.1.0
@@ -633,8 +633,8 @@ packages:
       vue: 3.2.41
     dev: false
 
-  /@halo-dev/console-shared/2.0.1_vue@3.2.41:
-    resolution: {integrity: sha512-2oQaADsutrVn52LBPzIVq/UwHyRrCSbv7+/hM1J1HB3F4U/ynA59lS4DIIM3CADrTj40/gDPxc2tGGtY/5zy0g==}
+  /@halo-dev/console-shared/2.1.0-rc.1_vue@3.2.41:
+    resolution: {integrity: sha512-70yRtp6NtxPYjBRQfIaaKyDIBmPNaPe2geMCVb/MbZ8r/kVv2YUyppUkt3QeW1MDsombwcGbfcTjeDZfh2eXbw==}
     peerDependencies:
       vue: ^3.2.37
       vue-router: ^4.0.16

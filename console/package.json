@@ -1,5 +1,5 @@
 {
-  "name": "@halo-dev/plugin-starter",
+  "name": "@halo-dev/plugin-bytemd",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -14,8 +14,7 @@
     "@bytemd/plugin-gfm": "^1.17.4",
     "@bytemd/vue-next": "^1.17.4",
     "@halo-dev/components": "^1.0.0",
-    "@halo-dev/console-shared": "^2.0.0",
-    "@toast-ui/editor": "^3.2.1",
+    "@halo-dev/console-shared": "^2.1.0-rc.1",
     "bytemd": "^1.17.4",
     "github-markdown-css": "^5.1.0",
     "vue": "^3.2.41"
