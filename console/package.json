@@ -14,7 +14,7 @@
     "@bytemd/plugin-gfm": "^1.17.4",
     "@bytemd/vue-next": "^1.17.4",
     "@halo-dev/components": "^1.0.0",
-    "@halo-dev/console-shared": "^2.1.0-rc.1",
+    "@halo-dev/console-shared": "^2.1.0",
     "bytemd": "^1.17.4",
     "github-markdown-css": "^5.1.0",
     "vue": "^3.2.41"
