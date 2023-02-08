@@ -17,6 +17,7 @@
     "@halo-dev/console-shared": "^2.1.0",
     "bytemd": "^1.17.4",
     "github-markdown-css": "^5.1.0",
+    "rehype-slug": "^5.1.0",
     "vue": "^3.2.41"
   },
   "devDependencies": {
