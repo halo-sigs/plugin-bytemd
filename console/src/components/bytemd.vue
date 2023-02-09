@@ -42,12 +42,23 @@ const handleChange = (v: string) => {
 <template>
   <Editor :value="raw" :plugins="plugins" @change="handleChange" />
 </template>
-<style>
+<style lang="scss">
 .bytemd {
   height: 100%;
   border: none;
-}
-.bytemd.bytemd-fullscreen {
-  z-index: 9999;
+
+  &.bytemd-fullscreen {
+    z-index: 9999;
+  }
+
+  .markdown-body {
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+  }
 }
 </style>
