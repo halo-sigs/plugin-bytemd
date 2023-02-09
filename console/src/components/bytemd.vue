@@ -28,7 +28,10 @@ const emit = defineEmits<{
 
 const handleChange = (v: string) => {
   emit("update:raw", v);
-  emit("update", v);
+
+  if (v !== props.raw) {
+    emit("update", v);
+  }
 
   const processor = getProcessor({ plugins: plugins }).processSync(props.raw);
 
