@@ -29,7 +29,10 @@ const emit = defineEmits<{
 
 const handleChange = (v: string) => {
   emit("update:raw", v);
-  emit("update", v);
+
+  if (v !== props.raw) {
+    emit("update", v);
+  }
 
   const processor = getProcessor({ plugins: plugins }).processSync(props.raw);
 
@@ -40,12 +43,23 @@ const handleChange = (v: string) => {
 <template>
   <Editor :value="raw" :plugins="plugins" @change="handleChange" />
 </template>
-<style>
+<style lang="scss">
 .bytemd {
   height: 100%;
   border: none;
-}
-.bytemd.bytemd-fullscreen {
-  z-index: 9999;
+
+  &.bytemd-fullscreen {
+    z-index: 9999;
+  }
+
+  .markdown-body {
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+  }
 }
 </style>
