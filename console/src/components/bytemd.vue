@@ -3,9 +3,10 @@ import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
+import { pluginSlug } from "../plugins";
 import { getProcessor } from "bytemd";
 
-const plugins = [gfm()];
+const plugins = [gfm(), pluginSlug()];
 
 const props = defineProps({
   raw: {
