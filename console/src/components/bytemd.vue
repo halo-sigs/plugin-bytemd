@@ -5,6 +5,7 @@ import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
 import { pluginSlug } from "../plugins";
 import { getProcessor } from "bytemd";
+import { watch } from "vue";
 
 const plugins = [gfm(), pluginSlug()];
 
@@ -33,11 +34,18 @@ const handleChange = (v: string) => {
   if (v !== props.raw) {
     emit("update", v);
   }
-
-  const processor = getProcessor({ plugins: plugins }).processSync(props.raw);
-
-  emit("update:content", processor.toString());
 };
+
+watch(
+  () => props.raw,
+  (value) => {
+    const processor = getProcessor({ plugins: plugins }).processSync(value);
+    emit("update:content", processor.toString());
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <template>
