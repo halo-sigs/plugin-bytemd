@@ -13,6 +13,8 @@ spec:
   homepage: https://github.com/ruibaby/plugin-bytemd
   displayName: "ByteMD"
   description: "对 ByteMD 的集成，让文章支持 Markdown 编辑"
+  settingName: setting-plugin-bytemd
+  configMapName: configmap-plugin-bytemd
   license:
     - name: "GPL-3.0"
       url: "https://github.com/halo-sigs/plugin-bytemd/blob/main/LICENSE"

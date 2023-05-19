@@ -3,11 +3,28 @@ import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
-import { pluginSlug } from "../plugins";
+import { pluginSlug, vim } from "../plugins";
 import { getProcessor } from "bytemd";
-import { watch } from "vue";
+import { watch, onMounted, ref } from "vue";
 
-const plugins = [gfm(), pluginSlug()];
+const plugins = ref([gfm(), pluginSlug()]);
+
+const VimKeymap = "vim";
+
+type Metadata = {
+  name: string;
+  labels?: Record<string, string>;
+  annotations?: Record<string, string>;
+  creationTimestamp: string;
+  deletionTimestamp: string;
+};
+
+type ConfigMap = {
+  apiVersion: string;
+  kind: string;
+  metadata: Metadata;
+  data?: Record<string, string>;
+};
 
 const props = defineProps({
   raw: {
@@ -36,10 +53,32 @@ const handleChange = (v: string) => {
   }
 };
 
+const fetchConfigMap = async (url: string): Promise<ConfigMap> => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+};
+
+onMounted(async () => {
+  try {
+    const configMap = await fetchConfigMap(
+      "/api/v1alpha1/configmaps/configmap-plugin-bytemd"
+    );
+    const { keymap } = JSON.parse(configMap.data?.basic as string);
+    if (keymap === VimKeymap) {
+      plugins.value = [...plugins.value, vim()];
+    }
+  } catch (e) {
+    // ignore this
+  }
+});
+
 watch(
   () => props.raw,
   (value) => {
-    const processor = getProcessor({ plugins: plugins }).processSync(value);
+    const processor = getProcessor({ plugins: plugins.value }).processSync(
+      value
+    );
     emit("update:content", processor.toString());
   },
   {

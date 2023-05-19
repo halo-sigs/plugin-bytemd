@@ -1,0 +1,16 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: setting-plugin-bytemd
+spec:
+  forms:
+    - group: "basic"
+      label: "基础设置"
+      formSchema:
+        - $formkit: select
+          name: keymap
+          label: "键映射"
+          value: "default"
+          options:
+            default: "默认"
+            vim: "Vim"
