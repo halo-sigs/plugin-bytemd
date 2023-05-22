@@ -53,17 +53,12 @@ const handleChange = (v: string) => {
   }
 };
 
-const fetchConfigMap = async (url: string): Promise<ConfigMap> => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-};
-
 onMounted(async () => {
   try {
-    const configMap = await fetchConfigMap(
+    const response = await fetch(
       "/api/v1alpha1/configmaps/configmap-plugin-bytemd"
     );
+    const configMap: ConfigMap = await response.json();
     const { keymap } = JSON.parse(configMap.data?.basic as string);
     if (keymap === VimKeymap) {
       plugins.value = [...plugins.value, vim()];

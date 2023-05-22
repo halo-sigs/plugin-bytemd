@@ -9,10 +9,10 @@ dependencies:
     version: 1.20.2(vue@3.2.47)
   '@halo-dev/components':
     specifier: ^1.1.0
-    version: 1.1.0(@lezer/common@1.0.1)(vue-router@4.2.0)(vue@3.2.47)
+    version: 1.1.0(vue@3.2.47)
   '@halo-dev/console-shared':
     specifier: ^2.2.0
-    version: 2.2.0(vue-router@4.2.0)(vue@3.2.47)
+    version: 2.2.0(vue@3.2.47)
   bytemd:
     specifier: ^1.20.2
     version: 1.20.2
@@ -56,7 +56,7 @@ devDependencies:
     version: 0.1.3(@types/node@16.18.12)
   codemirror-ssr:
     specifier: ^0.65.0
-    version: 0.65.0(@types/codemirror@5.60.7)
+    version: 0.65.0
   eslint:
     specifier: ^8.33.0
     version: 8.33.0
@@ -446,13 +446,12 @@ packages:
       - supports-color
     dev: false
 
-  /@codemirror/autocomplete@6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)(@lezer/common@1.0.1):
+  /@codemirror/autocomplete@6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0):
     resolution: {integrity: sha512-4jEvh3AjJZTDKazd10J6ZsCIqaYxDMCeua5ouQxY8hlFIml+nr7le0SgBhT3SIytFBmdzPK3AUhXGuW3T79nVg==}
     peerDependencies:
       '@codemirror/language': ^6.0.0
       '@codemirror/state': ^6.0.0
       '@codemirror/view': ^6.0.0
-      '@lezer/common': ^1.0.0
     dependencies:
       '@codemirror/language': 6.3.1
       '@codemirror/state': 6.1.4
@@ -469,23 +468,22 @@ packages:
       '@lezer/common': 1.0.1
     dev: false
 
-  /@codemirror/lang-css@6.0.1(@codemirror/view@6.6.0)(@lezer/common@1.0.1):
+  /@codemirror/lang-css@6.0.1(@codemirror/view@6.6.0):
     resolution: {integrity: sha512-rlLq1Dt0WJl+2epLQeAsfqIsx3lGu4HStHCJu95nGGuz2P2fNugbU3dQYafr2VRjM4eMC9HviI6jvS98CNtG5w==}
     dependencies:
-      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)(@lezer/common@1.0.1)
+      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)
       '@codemirror/language': 6.3.1
       '@codemirror/state': 6.1.4
       '@lezer/css': 1.1.0
     transitivePeerDependencies:
       - '@codemirror/view'
-      - '@lezer/common'
     dev: false
 
   /@codemirror/lang-html@6.4.0:
     resolution: {integrity: sha512-HHged0d9AQ/mpjYLTYDVdtI7235dO0COFNgc5uuiGokgjWx3L/sjMSw5aS/Nk7JG++LhsohG5HMNTCuqAq3Tcg==}
     dependencies:
-      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)(@lezer/common@1.0.1)
-      '@codemirror/lang-css': 6.0.1(@codemirror/view@6.6.0)(@lezer/common@1.0.1)
+      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)
+      '@codemirror/lang-css': 6.0.1(@codemirror/view@6.6.0)
       '@codemirror/lang-javascript': 6.1.1
       '@codemirror/language': 6.3.1
       '@codemirror/state': 6.1.4
@@ -498,7 +496,7 @@ packages:
   /@codemirror/lang-javascript@6.1.1:
     resolution: {integrity: sha512-F4+kiuC5d5dUSJmff96tJQwpEXs/tX/4bapMRnZWW6bHKK1Fx6MunTzopkCUWRa9bF87GPmb9m7Qtg7Yv8f3uQ==}
     dependencies:
-      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)(@lezer/common@1.0.1)
+      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)
       '@codemirror/language': 6.3.1
       '@codemirror/lint': 6.0.0
       '@codemirror/state': 6.1.4
@@ -792,14 +790,14 @@ packages:
       - supports-color
     dev: true
 
-  /@halo-dev/components@1.1.0(@lezer/common@1.0.1)(vue-router@4.2.0)(vue@3.2.47):
+  /@halo-dev/components@1.1.0(vue@3.2.47):
     resolution: {integrity: sha512-4vx9kZ3CK5gvh349ivb7EVwTeUCfaWxsHDUoVPFjGnU2SuokiKEht1u2Z00jPyFmQOY6R64nkd7q6G+A1Xmsfw==}
     peerDependencies:
       vue: ^3.2.37
       vue-router: ^4.0.16
     dependencies:
       '@codemirror/commands': 6.1.2
-      '@codemirror/lang-css': 6.0.1(@codemirror/view@6.6.0)(@lezer/common@1.0.1)
+      '@codemirror/lang-css': 6.0.1(@codemirror/view@6.6.0)
       '@codemirror/lang-html': 6.4.0
       '@codemirror/lang-javascript': 6.1.1
       '@codemirror/lang-json': 6.0.1
@@ -807,21 +805,17 @@ packages:
       '@codemirror/legacy-modes': 6.3.1
       '@codemirror/state': 6.1.4
       '@codemirror/view': 6.6.0
-      codemirror: 6.0.1(@lezer/common@1.0.1)
+      codemirror: 6.0.1
       vue: 3.2.47
-      vue-router: 4.2.0(vue@3.2.47)
-    transitivePeerDependencies:
-      - '@lezer/common'
     dev: false
 
-  /@halo-dev/console-shared@2.2.0(vue-router@4.2.0)(vue@3.2.47):
+  /@halo-dev/console-shared@2.2.0(vue@3.2.47):
     resolution: {integrity: sha512-HVVEFf7v74kNaRQ1JxWQpq/N4pWg3Ok0+arSyyjQDrjkY5EU+xeDztfxKRwc3U8x3karjeqzDMVQjeEUw/nK5Q==}
     peerDependencies:
       vue: ^3.2.37
       vue-router: ^4.0.16
     dependencies:
       vue: 3.2.47
-      vue-router: 4.2.0(vue@3.2.47)
     dev: false
 
   /@humanwhocodes/config-array@0.11.8:
@@ -975,6 +969,7 @@ packages:
     resolution: {integrity: sha512-QXIC+RPzt/1BGSuD6iFn6UMC9TDp+9hkOANYNPVsjjrDdzKphfRkwQDKGp2YaC54Yhz0g6P5uYTCCibZZEiMAA==}
     dependencies:
       '@types/tern': 0.23.4
+    dev: false
 
   /@types/debug@4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
@@ -984,6 +979,7 @@ packages:
 
   /@types/estree@1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
+    dev: false
 
   /@types/hast@2.3.4:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
@@ -1035,6 +1031,7 @@ packages:
     resolution: {integrity: sha512-JAUw1iXGO1qaWwEOzxTKJZ/5JxVeON9kvGZ/osgZaJImBnyjyn0cjovPsf6FNLmyGY8Vw9DoXZCMlfMkMwHRWg==}
     dependencies:
       '@types/estree': 1.0.0
+    dev: false
 
   /@types/tough-cookie@4.0.2:
     resolution: {integrity: sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==}
@@ -1290,10 +1287,6 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.47
       '@vue/shared': 3.2.47
-
-  /@vue/devtools-api@6.5.0:
-    resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
-    dev: false
 
   /@vue/eslint-config-prettier@7.0.0(eslint@8.33.0)(prettier@2.8.4):
     resolution: {integrity: sha512-/CTc6ML3Wta1tCe1gUeO0EYnVXfo3nJXsIhZ8WJr3sov+cGASr6yuiibJTL6lmIBm7GobopToOuB3B6AWyV0Iw==}
@@ -1661,25 +1654,30 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /codemirror-ssr@0.65.0:
+    resolution: {integrity: sha512-ofTAfPkQV56SYFfymNMYJ1ELo3+Jnkw3mOLgnIiQjhonwNmNzX1OFvnihAnYRXL0PWl2kT7s0gKrLc2ExshK4g==}
+    peerDependencies:
+      '@types/codemirror': ^5.0.0
+    dev: true
+
   /codemirror-ssr@0.65.0(@types/codemirror@5.60.7):
     resolution: {integrity: sha512-ofTAfPkQV56SYFfymNMYJ1ELo3+Jnkw3mOLgnIiQjhonwNmNzX1OFvnihAnYRXL0PWl2kT7s0gKrLc2ExshK4g==}
     peerDependencies:
       '@types/codemirror': ^5.0.0
     dependencies:
       '@types/codemirror': 5.60.7
+    dev: false
 
-  /codemirror@6.0.1(@lezer/common@1.0.1):
+  /codemirror@6.0.1:
     resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
     dependencies:
-      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)(@lezer/common@1.0.1)
+      '@codemirror/autocomplete': 6.3.0(@codemirror/language@6.3.1)(@codemirror/state@6.1.4)(@codemirror/view@6.6.0)
       '@codemirror/commands': 6.1.2
       '@codemirror/language': 6.3.1
       '@codemirror/lint': 6.0.0
       '@codemirror/search': 6.2.1
       '@codemirror/state': 6.1.4
       '@codemirror/view': 6.6.0
-    transitivePeerDependencies:
-      - '@lezer/common'
     dev: false
 
   /color-convert@1.9.3:
@@ -4607,15 +4605,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /vue-router@4.2.0(vue@3.2.47):
-    resolution: {integrity: sha512-c+usESa6ZoWsm4PPdzRSyenp5A4dsUtnDJnrI03fY1IpIihA9TK3x5ffgkFDpjhLJZewsXoKURapNLFdZjuqTg==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      '@vue/devtools-api': 6.5.0
-      vue: 3.2.47
-    dev: false
 
   /vue-template-compiler@2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}
