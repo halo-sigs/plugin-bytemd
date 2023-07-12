@@ -6,8 +6,9 @@ import gfm from "@bytemd/plugin-gfm";
 import { pluginSlug, vim } from "../plugins";
 import { getProcessor } from "bytemd";
 import { watch, onMounted, ref } from "vue";
+import math from "@bytemd/plugin-math";
 
-const plugins = ref([gfm(), pluginSlug()]);
+const plugins = ref([gfm(), pluginSlug(), math()]);
 
 const VimKeymap = "vim";
 
