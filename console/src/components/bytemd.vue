@@ -1,12 +1,46 @@
 <script setup lang="ts">
-import "bytemd/dist/index.css";
-import "github-markdown-css/github-markdown-light.css";
+import bytemdStyles from "bytemd/dist/index.css?raw";
+import markdownStyles from "github-markdown-css/github-markdown-light.css?raw";
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
 import { pluginSlug, vim } from "../plugins";
 import { getProcessor } from "bytemd";
-import { watch, onMounted, ref } from "vue";
+import { watch, onMounted, ref, onUnmounted } from "vue";
 import math from "@bytemd/plugin-math";
+import { useStyleTag } from "@vueuse/core";
+
+// inject styles to resolve stylesheet conflicts
+const { load, unload } = useStyleTag(
+  [
+    bytemdStyles,
+    markdownStyles,
+    `
+.bytemd {
+  height: 100%;
+  border: none;
+}
+.bytemd.bytemd-fullscreen {
+  z-index: 9999;
+}
+.bytemd .markdown-body ul {
+  list-style: disc;
+}
+.bytemd .markdown-body ol {
+  list-style: decimal;
+}
+`,
+  ].join("\n"),
+  {
+    id: "plugin-bytemd",
+  }
+);
+onMounted(() => {
+  load();
+});
+
+onUnmounted(() => {
+  unload();
+});
 
 const plugins = ref([gfm(), pluginSlug(), math()]);
 
@@ -86,23 +120,3 @@ watch(
 <template>
   <Editor :value="raw" :plugins="plugins" @change="handleChange" />
 </template>
-<style lang="scss">
-.bytemd {
-  height: 100%;
-  border: none;
-
-  &.bytemd-fullscreen {
-    z-index: 9999;
-  }
-
-  .markdown-body {
-    ul {
-      list-style: disc;
-    }
-
-    ol {
-      list-style: decimal;
-    }
-  }
-}
-</style>
