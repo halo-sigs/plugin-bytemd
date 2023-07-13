@@ -7,19 +7,11 @@ import { pluginSlug, vim } from "../plugins";
 import { getProcessor } from "bytemd";
 import { watch, onMounted, ref, onUnmounted } from "vue";
 import math from "@bytemd/plugin-math";
+import { useStyleTag } from "@vueuse/core";
 
 // inject styles to resolve stylesheet conflicts
-onMounted(() => {
-  const el: HTMLLinkElement | null = document.querySelector(
-    'style[data-source="plugin-bytemd"]'
-  );
-
-  if (el) {
-    return;
-  }
-
-  const styleElement = document.createElement("style");
-  styleElement.innerHTML = [
+const { load, unload } = useStyleTag(
+  [
     bytemdStyles,
     markdownStyles,
     `
@@ -37,20 +29,17 @@ onMounted(() => {
   list-style: decimal;
 }
 `,
-  ].join("\n");
-  styleElement.setAttribute("data-source", "plugin-bytemd");
-  styleElement.setAttribute("type", "text/css");
-  document.head.append(styleElement);
+  ].join("\n"),
+  {
+    id: "plugin-bytemd",
+  }
+);
+onMounted(() => {
+  load();
 });
 
 onUnmounted(() => {
-  const el: HTMLLinkElement | null = document.querySelector(
-    'style[data-source="plugin-bytemd"]'
-  );
-
-  if (el) {
-    el.remove();
-  }
+  unload();
 });
 
 const plugins = ref([gfm(), pluginSlug(), math()]);
