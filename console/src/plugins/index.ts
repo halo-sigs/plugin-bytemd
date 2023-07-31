@@ -1,6 +1,6 @@
 import type { BytemdPlugin, BytemdEditorContext } from "bytemd";
 import rehypeSlug from "rehype-slug";
-import useVim from 'codemirror-ssr/keymap/vim'
+import useVim from "codemirror-ssr/keymap/vim";
 
 export function pluginSlug(): BytemdPlugin {
   return {
@@ -10,9 +10,9 @@ export function pluginSlug(): BytemdPlugin {
 
 export function vim(): BytemdPlugin {
   return {
-    editorEffect (ctx: BytemdEditorContext) {
-      useVim(ctx.codemirror)
-      ctx.editor.setOption('keyMap', 'vim')
+    editorEffect(ctx: BytemdEditorContext) {
+      useVim(ctx.codemirror);
+      ctx.editor.setOption("keyMap", "vim");
     },
-  }
+  };
 }
