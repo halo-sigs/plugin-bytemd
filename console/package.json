@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite build --watch",
+    "dev": "vite build --watch --mode=development",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",

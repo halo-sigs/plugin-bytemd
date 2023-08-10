@@ -1,48 +1,35 @@
 <script setup lang="ts">
-import bytemdStyles from "bytemd/dist/index.css?raw";
-import markdownStyles from "github-markdown-css/github-markdown-light.css?raw";
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
 import { pluginSlug, vim } from "../plugins";
-import { getProcessor } from "bytemd";
-import { watch, onMounted, ref, onUnmounted } from "vue";
+import { getProcessor, type BytemdEditorContext } from "bytemd";
+import { watch, onMounted, ref } from "vue";
 import math from "@bytemd/plugin-math";
-import { useStyleTag } from "@vueuse/core";
+import { useBytemdStyles } from "@/composables/use-styles";
+import type { AttachmentLike } from "@halo-dev/console-shared";
 
-// inject styles to resolve stylesheet conflicts
-const { load, unload } = useStyleTag(
-  [
-    bytemdStyles,
-    markdownStyles,
-    `
-.bytemd {
-  height: 100%;
-  border: none;
-}
-.bytemd.bytemd-fullscreen {
-  z-index: 9999;
-}
-.bytemd .markdown-body ul {
-  list-style: disc;
-}
-.bytemd .markdown-body ol {
-  list-style: decimal;
-}
-`,
-  ].join("\n"),
+useBytemdStyles();
+
+const plugins = ref([
+  gfm(),
+  pluginSlug(),
+  math(),
   {
-    id: "plugin-bytemd",
-  }
-);
-onMounted(() => {
-  load();
-});
-
-onUnmounted(() => {
-  unload();
-});
-
-const plugins = ref([gfm(), pluginSlug(), math()]);
+    actions: [
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><g fill="none"><path fill="currentColor" d="M44 24a2 2 0 1 0-4 0h4ZM24 8a2 2 0 1 0 0-4v4Zm15 32H9v4h30v-4ZM8 39V9H4v30h4Zm32-15v15h4V24h-4ZM9 8h15V4H9v4Zm0 32a1 1 0 0 1-1-1H4a5 5 0 0 0 5 5v-4Zm30 4a5 5 0 0 0 5-5h-4a1 1 0 0 1-1 1v4ZM8 9a1 1 0 0 1 1-1V4a5 5 0 0 0-5 5h4Z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m6 35l10.693-9.802a2 2 0 0 1 2.653-.044L32 36m-4-5l4.773-4.773a2 2 0 0 1 2.615-.186L42 31M30 12h12m-6-6v12"/></g></svg>',
+        title: "Attachment",
+        handler: {
+          type: "action",
+          click: (context: BytemdEditorContext): void => {
+            editorContext.value = context;
+            attachmentSelectorModal.value = true;
+          },
+        },
+      },
+    ],
+  },
+]);
 
 const VimKeymap = "vim";
 
@@ -115,8 +102,56 @@ watch(
     immediate: true,
   }
 );
+
+// attachment selector
+const attachmentSelectorModal = ref(false);
+const editorContext = ref<BytemdEditorContext>();
+const onAttachmentSelect = (attachments: AttachmentLike[]) => {
+  if (!attachments.length) {
+    return;
+  }
+
+  attachments.forEach((attachment) => {
+    if (typeof attachment === "string") {
+      editorContext.value?.appendBlock(`![](${attachment})`);
+    } else if ("url" in attachment) {
+      editorContext.value?.appendBlock(
+        `![${attachment.type}](${attachment.url})`
+      );
+    } else if ("spec" in attachment) {
+      const { mediaType, displayName } = attachment.spec;
+      const { permalink } = attachment.status || {};
+
+      if (mediaType?.startsWith("image/")) {
+        editorContext.value?.appendBlock(`![${displayName}](${permalink})`);
+        return;
+      }
+
+      if (mediaType?.startsWith("video/")) {
+        editorContext.value?.appendBlock(`<video src="${permalink}"></video>`);
+        return;
+      }
+
+      if (mediaType?.startsWith("audio/")) {
+        editorContext.value?.appendBlock(`<audio src="${permalink}"></audio>`);
+        return;
+      }
+
+      editorContext.value?.appendBlock(`[${displayName}](${permalink})`);
+    }
+  });
+
+  attachmentSelectorModal.value = false;
+  editorContext.value = undefined;
+};
 </script>
 
 <template>
-  <Editor :value="raw" :plugins="plugins" @change="handleChange" />
+  <section class="bytemd-wrapper">
+    <Editor :value="raw" :plugins="plugins" @change="handleChange" />
+    <AttachmentSelectorModal
+      v-model:visible="attachmentSelectorModal"
+      @select="onAttachmentSelect"
+    />
+  </section>
 </template>
