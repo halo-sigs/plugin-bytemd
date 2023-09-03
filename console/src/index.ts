@@ -11,6 +11,7 @@ export default definePlugin({
           displayName: "ByteMD",
           component: markRaw(bytemd),
           rawType: "markdown",
+          logo: "/plugins/PluginBytemd/assets/logo.png",
         },
       ];
     },
