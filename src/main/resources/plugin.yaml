@@ -2,15 +2,21 @@ apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
   name: PluginBytemd
+  annotations:
+    # Add supports for Halo App Store
+    # https://www.halo.run/store/apps/app-HTyhC
+    "store.halo.run/app-id": "app-HTyhC"
 spec:
   enabled: true
   version: 1.1.1
   requires: ">=2.1.0"
   author:
-    name: Halo OSS Team
+    name: Halo
     website: https://github.com/halo-dev
   logo: logo.png
-  homepage: https://github.com/ruibaby/plugin-bytemd
+  homepage: https://www.halo.run/store/apps/app-HTyhC
+  repo: https://github.com/halo-sigs/plugin-bytemd
+  issues: https://github.com/halo-sigs/plugin-bytemd/issues
   displayName: "ByteMD"
   description: "对 ByteMD 的集成，让文章支持 Markdown 编辑"
   settingName: setting-plugin-bytemd
