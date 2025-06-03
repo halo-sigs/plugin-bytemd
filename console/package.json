@@ -15,15 +15,17 @@
     "@bytemd/plugin-gfm": "^1.21.0",
     "@bytemd/plugin-math": "^1.21.0",
     "@bytemd/vue-next": "^1.21.0",
-    "@halo-dev/components": "^1.8.0",
+    "@halo-dev/api-client": "^2.20.21",
     "@halo-dev/console-shared": "^2.9.0",
     "@vueuse/core": "9",
+    "axios": "^1.9.0",
     "bytemd": "^1.20.2",
     "github-markdown-css": "^5.1.0",
     "rehype-slug": "^5.1.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@halo-dev/ui-plugin-bundler-kit": "^2.20.21",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^16.18.12",
@@ -44,5 +46,6 @@
     "vite": "^4.1.1",
     "vitest": "^0.24.5",
     "vue-tsc": "^1.0.24"
-  }
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

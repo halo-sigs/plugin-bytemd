@@ -12,5 +12,7 @@ spec:
           label: "键映射"
           value: "default"
           options:
-            default: "默认"
-            vim: "Vim"
+            - label: "默认"
+              value: "default"
+            - label: "Vim"
+              value: "vim"
