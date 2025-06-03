@@ -8,6 +8,7 @@ import math from "@bytemd/plugin-math";
 import breaks from "@bytemd/plugin-breaks";
 import { useBytemdStyles } from "@/composables/use-styles";
 import type { AttachmentLike } from "@halo-dev/console-shared";
+import { consoleApiClient } from "@halo-dev/api-client";
 
 useBytemdStyles();
 
@@ -33,22 +34,7 @@ const plugins = ref([
   },
 ]);
 
-const VimKeymap = "vim";
-
-type Metadata = {
-  name: string;
-  labels?: Record<string, string>;
-  annotations?: Record<string, string>;
-  creationTimestamp: string;
-  deletionTimestamp: string;
-};
-
-type ConfigMap = {
-  apiVersion: string;
-  kind: string;
-  metadata: Metadata;
-  data?: Record<string, string>;
-};
+const VIM_KEYMAP_NAME = "vim";
 
 const props = defineProps({
   raw: {
@@ -79,12 +65,15 @@ const handleChange = (v: string) => {
 
 onMounted(async () => {
   try {
-    const response = await fetch(
-      "/api/v1alpha1/configmaps/configmap-plugin-bytemd"
+    const { data } = await consoleApiClient.plugin.plugin.fetchPluginJsonConfig(
+      {
+        name: "PluginBytemd",
+      }
     );
-    const configMap: ConfigMap = await response.json();
-    const { keymap } = JSON.parse(configMap.data?.basic as string);
-    if (keymap === VimKeymap) {
+
+    const configMapData = data as Record<string, any>;
+
+    if (configMapData?.basic?.keymap === VIM_KEYMAP_NAME) {
       plugins.value = [...plugins.value, vim()];
     }
   } catch (e) {
