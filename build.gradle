@@ -37,18 +37,11 @@ node {
 
 tasks.register('buildFrontend', PnpmTask) {
     args = ['build']
-    dependsOn('installDepsForUI')
+    dependsOn('pnpmInstall')
 }
 
-tasks.register('installDepsForUI', PnpmTask) {
-    args = ['install']
-}
-
-build {
-    // build frontend before build
-    tasks.named('compileJava').configure {
-        dependsOn('buildFrontend')
-    }
+tasks.named('compileJava') {
+    dependsOn('buildFrontend')
 }
 
 halo {
