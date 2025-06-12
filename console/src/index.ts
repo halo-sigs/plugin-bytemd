@@ -1,6 +1,6 @@
 import { definePlugin } from "@halo-dev/console-shared";
-import { markRaw } from "vue";
-import bytemd from "./components/bytemd.vue";
+import { defineAsyncComponent } from "vue";
+import { VLoading } from "@halo-dev/components";
 
 export default definePlugin({
   extensionPoints: {
@@ -9,7 +9,10 @@ export default definePlugin({
         {
           name: "bytemd",
           displayName: "ByteMD",
-          component: markRaw(bytemd),
+          component: defineAsyncComponent({
+            loader: () => import("./components/bytemd.vue"),
+            loadingComponent: VLoading,
+          }),
           rawType: "markdown",
           logo: "/plugins/PluginBytemd/assets/logo.png",
         },

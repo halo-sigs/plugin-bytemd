@@ -6,11 +6,11 @@ import { getProcessor, type BytemdEditorContext } from "bytemd";
 import { watch, onMounted, ref } from "vue";
 import math from "@bytemd/plugin-math";
 import breaks from "@bytemd/plugin-breaks";
-import { useBytemdStyles } from "@/composables/use-styles";
 import type { AttachmentLike } from "@halo-dev/console-shared";
 import { consoleApiClient } from "@halo-dev/api-client";
-
-useBytemdStyles();
+import "bytemd/dist/index.css";
+import "github-markdown-css/github-markdown-light.css";
+import "../styles/main.scss";
 
 const plugins = ref([
   gfm(),

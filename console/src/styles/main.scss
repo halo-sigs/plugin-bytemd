@@ -1,0 +1,16 @@
+.bytemd-wrapper > div {
+  height: 100%;
+}
+.bytemd {
+  height: 100%;
+  border: none;
+}
+.bytemd.bytemd-fullscreen {
+  z-index: 9999;
+}
+.bytemd .markdown-body ul {
+  list-style: disc;
+}
+.bytemd .markdown-body ol {
+  list-style: decimal;
+}
