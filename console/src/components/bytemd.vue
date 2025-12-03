@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
+import mermaid from "@bytemd/plugin-mermaid";
 import { pluginSlug, vim } from "../plugins";
 import { getProcessor, type BytemdEditorContext } from "bytemd";
 import { watch, onMounted, ref } from "vue";
@@ -17,6 +18,7 @@ const plugins = ref([
   pluginSlug(),
   math(),
   breaks(),
+  mermaid(),
   {
     actions: [
       {

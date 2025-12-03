@@ -9,6 +9,7 @@
     "@bytemd/plugin-breaks": "^1.22.0",
     "@bytemd/plugin-gfm": "^1.22.0",
     "@bytemd/plugin-math": "^1.22.0",
+    "@bytemd/plugin-mermaid": "^1.22.0",
     "@bytemd/vue-next": "^1.22.0",
     "@halo-dev/api-client": "^2.21.1",
     "@halo-dev/components": "^2.21.0",
