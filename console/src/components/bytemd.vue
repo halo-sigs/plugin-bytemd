@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
-import { pluginSlug, vim } from "../plugins";
+import mermaid from "@bytemd/plugin-mermaid";
+import { pluginSlug, pluginMermaidSSR, vim } from "../plugins";
 import { getProcessor, type BytemdEditorContext } from "bytemd";
 import { watch, onMounted, ref } from "vue";
 import math from "@bytemd/plugin-math";
@@ -12,11 +13,13 @@ import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import "../styles/main.scss";
 
+// Plugins for the editor (with mermaid for UI features)
 const plugins = ref([
   gfm(),
   pluginSlug(),
   math(),
   breaks(),
+  mermaid(),
   {
     actions: [
       {
@@ -32,6 +35,15 @@ const plugins = ref([
       },
     ],
   },
+]);
+
+// Plugins for processing (with SSR mermaid for pre-rendering)
+const processorPlugins = ref([
+  gfm(),
+  pluginSlug(),
+  math(),
+  breaks(),
+  pluginMermaidSSR(),
 ]);
 
 const VIM_KEYMAP_NAME = "vim";
@@ -75,6 +87,7 @@ onMounted(async () => {
 
     if (configMapData?.basic?.keymap === VIM_KEYMAP_NAME) {
       plugins.value = [...plugins.value, vim()];
+      processorPlugins.value = [...processorPlugins.value, vim()];
     }
   } catch (e) {
     // ignore this
@@ -83,11 +96,16 @@ onMounted(async () => {
 
 watch(
   () => props.raw,
-  (value) => {
-    const processor = getProcessor({ plugins: plugins.value }).processSync(
-      value
-    );
-    emit("update:content", processor.toString());
+  async (value) => {
+    try {
+      const processor = getProcessor({ plugins: processorPlugins.value });
+      const result = await processor.process(value);
+      emit("update:content", result.toString());
+    } catch (error) {
+      console.error("Failed to process markdown:", error);
+      // Fallback to empty content on error
+      emit("update:content", "");
+    }
   },
   {
     immediate: true,
