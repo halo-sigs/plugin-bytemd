@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
-import { pluginSlug, vim } from "../plugins";
-import { getProcessor, type BytemdEditorContext } from "bytemd";
+import { markdownTable, pluginSlug, vim } from "../plugins";
+import {
+  getProcessor,
+  type BytemdEditorContext,
+  type BytemdPlugin,
+} from "bytemd";
 import { watch, onMounted, ref } from "vue";
 import math from "@bytemd/plugin-math";
 import breaks from "@bytemd/plugin-breaks";
@@ -12,7 +16,7 @@ import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import "../styles/main.scss";
 
-const plugins = ref([
+const basePlugins: BytemdPlugin[] = [
   gfm(),
   pluginSlug(),
   math(),
@@ -32,7 +36,13 @@ const plugins = ref([
       },
     ],
   },
-]);
+];
+
+const createPlugins = (useVimKeymap = false): BytemdPlugin[] => {
+  return [...basePlugins, useVimKeymap ? vim() : markdownTable()];
+};
+
+const plugins = ref<BytemdPlugin[]>(createPlugins());
 
 const VIM_KEYMAP_NAME = "vim";
 
@@ -74,7 +84,7 @@ onMounted(async () => {
     const configMapData = data as Record<string, any>;
 
     if (configMapData?.basic?.keymap === VIM_KEYMAP_NAME) {
-      plugins.value = [...plugins.value, vim()];
+      plugins.value = createPlugins(true);
     }
   } catch (e) {
     // ignore this
