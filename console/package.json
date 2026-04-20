@@ -14,6 +14,7 @@
     "@halo-dev/api-client": "^2.21.1",
     "@halo-dev/components": "^2.21.0",
     "@halo-dev/console-shared": "^2.21.0",
+    "@susisu/mte-kernel": "^2.1.1",
     "@vueuse/core": "9",
     "axios": "^1.13.1",
     "bytemd": "^1.22.0",

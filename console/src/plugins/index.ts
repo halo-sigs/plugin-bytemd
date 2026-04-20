@@ -1,6 +1,7 @@
 import type { BytemdPlugin, BytemdEditorContext } from "bytemd";
 import rehypeSlug from "rehype-slug";
 import useVim from "codemirror-ssr/keymap/vim";
+export { markdownTable } from "./markdown-table";
 
 export function pluginSlug(): BytemdPlugin {
   return {
