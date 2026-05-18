@@ -151,8 +151,9 @@ const onAttachmentSelect = (attachments: AttachmentLike[]) => {
   <section class="bytemd-wrapper">
     <Editor :value="raw" :plugins="plugins" @change="handleChange" />
     <AttachmentSelectorModal
-      v-model:visible="attachmentSelectorModal"
+      v-if="attachmentSelectorModal"
       @select="onAttachmentSelect"
+      @close="attachmentSelectorModal = false"
     />
   </section>
 </template>
