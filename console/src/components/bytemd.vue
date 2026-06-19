@@ -12,6 +12,7 @@ import math from "@bytemd/plugin-math";
 import breaks from "@bytemd/plugin-breaks";
 import type { AttachmentLike } from "@halo-dev/console-shared";
 import { consoleApiClient } from "@halo-dev/api-client";
+import { createCustomHtmlSanitize } from "../utils/custom-html";
 import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import "../styles/main.scss";
@@ -59,6 +60,8 @@ const props = defineProps({
   },
 });
 
+const sanitize = createCustomHtmlSanitize(() => props.raw);
+
 const emit = defineEmits<{
   (event: "update:raw", value: string): void;
   (event: "update:content", value: string): void;
@@ -94,9 +97,10 @@ onMounted(async () => {
 watch(
   () => props.raw,
   (value) => {
-    const processor = getProcessor({ plugins: plugins.value }).processSync(
-      value
-    );
+    const processor = getProcessor({
+      plugins: plugins.value,
+      sanitize,
+    }).processSync(value);
     emit("update:content", processor.toString());
   },
   {
@@ -149,7 +153,12 @@ const onAttachmentSelect = (attachments: AttachmentLike[]) => {
 
 <template>
   <section class="bytemd-wrapper">
-    <Editor :value="raw" :plugins="plugins" @change="handleChange" />
+    <Editor
+      :value="raw"
+      :plugins="plugins"
+      :sanitize="sanitize"
+      @change="handleChange"
+    />
     <AttachmentSelectorModal
       v-if="attachmentSelectorModal"
       @select="onAttachmentSelect"
