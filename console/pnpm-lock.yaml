@@ -21,14 +21,14 @@ importers:
         specifier: ^1.22.0
         version: 1.22.0(vue@3.5.22(typescript@4.7.4))
       '@halo-dev/api-client':
-        specifier: ^2.21.1
-        version: 2.21.1(axios@1.13.1)
+        specifier: ^2.25.2
+        version: 2.25.2(axios@1.13.1)
       '@halo-dev/components':
-        specifier: ^2.21.0
-        version: 2.21.0(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))
-      '@halo-dev/console-shared':
-        specifier: ^2.21.0
-        version: 2.21.0(axios@1.13.1)(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))
+        specifier: ^2.25.2
+        version: 2.25.2(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))
+      '@halo-dev/ui-shared':
+        specifier: ^2.25.2
+        version: 2.25.2(@tiptap/pm@3.27.1)(axios@1.13.1)(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))
       '@susisu/mte-kernel':
         specifier: ^2.1.1
         version: 2.1.1
@@ -52,8 +52,8 @@ importers:
         version: 3.5.22(typescript@4.7.4)
     devDependencies:
       '@halo-dev/ui-plugin-bundler-kit':
-        specifier: 2.21.2
-        version: 2.21.2(@rsbuild/core@1.6.0)(@rsbuild/plugin-vue@1.2.0(@rsbuild/core@1.6.0)(vue@3.5.22(typescript@4.7.4)))(@vitejs/plugin-vue@6.0.1(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))(vue@3.5.22(typescript@4.7.4)))(axios@1.13.1)(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))
+        specifier: ^2.25.2
+        version: 2.25.2(@rsbuild/core@1.6.0)(@rsbuild/plugin-vue@1.2.0(@rsbuild/core@1.6.0)(vue@3.5.22(typescript@4.7.4)))(@vitejs/plugin-vue@6.0.1(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))(vue@3.5.22(typescript@4.7.4)))(axios@1.13.1)(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))
       '@rsbuild/core':
         specifier: ^1.6.0
         version: 1.6.0
@@ -344,36 +344,31 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
-  '@halo-dev/api-client@2.21.0':
-    resolution: {integrity: sha512-8yzq9BKC6eLQeK+njbnhRfteR4FoY6mf7qq4EQI6xyC3oD27JwJhCvc1gkVNsA22Z14skCt2GrPRWnwX3VLV8Q==}
+  '@halo-dev/api-client@2.25.2':
+    resolution: {integrity: sha512-9FkxGu1N4Ct5TuSXyR8ktY6HzpDbgpFqqC67OqpSCGsX45/8iOm4+oXBqbHAhCWrRbMh1zHPxIE4zadWh7H1Qw==}
     peerDependencies:
-      axios: ^1.7.x
+      axios: ^1.16.0
 
-  '@halo-dev/api-client@2.21.1':
-    resolution: {integrity: sha512-4sfpSui4YO2u7W73r3ECoegK+/kVzLHv/a16pT23gZUqazK+5ZAqpDqVYHhbpyBVbs/fmsUuMgI8TXVLo6kZjg==}
+  '@halo-dev/components@2.25.2':
+    resolution: {integrity: sha512-54DqfDQE+6yaqObUKNvIiVvxaa33WorNe/RH/Zke4I2+0GGG1NKt8sfp4asQlnMjSTXs95yCLgT1Hju3QRiaTg==}
     peerDependencies:
-      axios: ^1.7.x
+      vue: ^3.5.x
+      vue-router: ^5.0.x
 
-  '@halo-dev/components@2.21.0':
-    resolution: {integrity: sha512-hfAKAxFSW7k+690PQoDqe0CAQYBM3O5zsLZwnl+mnZs7VMw9cIQauqWQ+WwIVn+nsfnGhr1a+0VlLtyn/cAwxA==}
-    peerDependencies:
-      vue: ^3.5.16
-      vue-router: ^4.5.1
-
-  '@halo-dev/console-shared@2.21.0':
-    resolution: {integrity: sha512-cEHvV3AkW9lP6OOv2lF2f5slB6WQHzeQjyaxOyyzza8VFLPT6brIHof7aGm8whznSHBRDDAmi7izv/7D6GAIig==}
-    peerDependencies:
-      vue: ^3.5.16
-      vue-router: ^4.5.1
-
-  '@halo-dev/ui-plugin-bundler-kit@2.21.2':
-    resolution: {integrity: sha512-CjKAxs02VlrMGyPxV7fEDEfNOPoQDT22i4RkK/sts1JvysYEHNXhe9mZ9qa9CwVX4dorLGgd++l0nWODuAsvRQ==}
+  '@halo-dev/ui-plugin-bundler-kit@2.25.2':
+    resolution: {integrity: sha512-IfauzRYtfghF53p1qYwTWXuxWTEQW+k5RWjWENou68uLj0R6nuAkxWo577EWNanPxmh4+P3bUFu+a4JGwKjXOg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      '@rsbuild/core': ^1.0.0
-      '@rsbuild/plugin-vue': ^1.0.0
+      '@rsbuild/core': ^1.0.0 || ^2.0.0
+      '@rsbuild/plugin-vue': ^1.0.0 || ^2.0.0
       '@vitejs/plugin-vue': ^5.0.0 || ^6.0.0
-      vite: ^5.0.0 || ^6.0.0 || ^7.0.0
+      vite: ^6.0.0 || ^7.0.0 || ^8.0.0
+
+  '@halo-dev/ui-shared@2.25.2':
+    resolution: {integrity: sha512-5VlIzlhrENXkc3s6FujTjN3jDIXCISLm4YtXc5/WBecSQaKlavE5N06ixDccuTVMs3sztRST6TdgvNRcMLEN6g==}
+    peerDependencies:
+      vue: ^3.5.x
+      vue-router: ^5.0.x
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -728,6 +723,14 @@ packages:
 
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
+
+  '@tiptap/core@3.27.1':
+    resolution: {integrity: sha512-rV6Qn4wmC6BxfF+4mu6bqGWj9vA4oXXhsrpXaJL2uhjxeHAGofjwcHof2X84VYzeyXgdlsGmqKie4TAppVXZUQ==}
+    peerDependencies:
+      '@tiptap/pm': 3.27.1
+
+  '@tiptap/pm@3.27.1':
+    resolution: {integrity: sha512-Ffjx+vimmBU7zH/KrpXzJid3+pziCe/VL2aexSTP63cyQwKQ65LkFkCKaIsSpFdQQuakVZBGWjCA5RoBV852pw==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -1607,6 +1610,10 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
+  js-yaml@4.2.0:
+    resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
+    hasBin: true
+
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
 
@@ -1838,6 +1845,9 @@ packages:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  mitt@3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -1881,6 +1891,9 @@ packages:
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
+
+  orderedmap@2.1.1:
+    resolution: {integrity: sha512-TvAWxi0nDe1j/rtMcWcIj94+Ffe6n7zhow33h40SKxmsmozs6dz/e+EajymfoFcHd7sxNn8yHM8839uixMOV6g==}
 
   p-limit@3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
@@ -1950,6 +1963,45 @@ packages:
 
   property-information@6.5.0:
     resolution: {integrity: sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==}
+
+  prosemirror-changeset@2.4.1:
+    resolution: {integrity: sha512-96WBLhOaYhJ+kPhLg3uW359Tz6I/MfcrQfL4EGv4SrcqKEMC1gmoGrXHecPE8eOwTVCJ4IwgfzM8fFad25wNfw==}
+
+  prosemirror-commands@1.7.1:
+    resolution: {integrity: sha512-rT7qZnQtx5c0/y/KlYaGvtG411S97UaL6gdp6RIZ23DLHanMYLyfGBV5DtSnZdthQql7W+lEVbpSfwtO8T+L2w==}
+
+  prosemirror-dropcursor@1.8.2:
+    resolution: {integrity: sha512-CCk6Gyx9+Tt2sbYk5NK0nB1ukHi2ryaRgadV/LvyNuO3ena1payM2z6Cg0vO1ebK8cxbzo41ku2DE5Axj1Zuiw==}
+
+  prosemirror-gapcursor@1.4.1:
+    resolution: {integrity: sha512-pMdYaEnjNMSwl11yjEGtgTmLkR08m/Vl+Jj443167p9eB3HVQKhYCc4gmHVDsLPODfZfjr/MmirsdyZziXbQKw==}
+
+  prosemirror-history@1.5.0:
+    resolution: {integrity: sha512-zlzTiH01eKA55UAf1MEjtssJeHnGxO0j4K4Dpx+gnmX9n+SHNlDqI2oO1Kv1iPN5B1dm5fsljCfqKF9nFL6HRg==}
+
+  prosemirror-inputrules@1.5.1:
+    resolution: {integrity: sha512-7wj4uMjKaXWAQ1CDgxNzNtR9AlsuwzHfdFH1ygEHA2KHF2DOEaXl1CJfNPAKCg9qNEh4rum975QLaCiQPyY6Fw==}
+
+  prosemirror-keymap@1.2.3:
+    resolution: {integrity: sha512-4HucRlpiLd1IPQQXNqeo81BGtkY8Ai5smHhKW9jjPKRc2wQIxksg7Hl1tTI2IfT2B/LgX6bfYvXxEpJl7aKYKw==}
+
+  prosemirror-model@1.25.9:
+    resolution: {integrity: sha512-pRTklkDDMMRopyoAcrr9wV/8g/RYgrLHBuJAb5hlEuYZRdm5yqmPjWId83fpBwPpSFqEdja0H7Dfd7z1X/npcA==}
+
+  prosemirror-schema-list@1.5.1:
+    resolution: {integrity: sha512-927lFx/uwyQaGwJxLWCZRkjXG0p48KpMj6ueoYiu4JX05GGuGcgzAy62dfiV8eFZftgyBUvLx76RsMe20fJl+Q==}
+
+  prosemirror-state@1.4.4:
+    resolution: {integrity: sha512-6jiYHH2CIGbCfnxdHbXZ12gySFY/fz/ulZE333G6bPqIZ4F+TXo9ifiR86nAHpWnfoNjOb3o5ESi7J8Uz1jXHw==}
+
+  prosemirror-tables@1.8.5:
+    resolution: {integrity: sha512-V/0cDCsHKHe/tfWkeCmthNUcEp1IVO3p6vwN8XtwE9PZQLAZJigbw3QoraAdfJPir4NKJtNvOB8oYGKRl+t0Dw==}
+
+  prosemirror-transform@1.12.0:
+    resolution: {integrity: sha512-GxboyN4AMIsoHNtz5uf2r2Ru551i5hWeCMD6E2Ib4Eogqoub0NflniaBPVQ4MrGE5yZ8JV9tUHg9qcZTTrcN4w==}
+
+  prosemirror-view@1.41.9:
+    resolution: {integrity: sha512-clTunTX+eaLbr87L1V1QPheRlEQJyTlL3gXe9x3jQIk3rL0RVWxviDGz8tFaydwIVm+hKhYCyr+R/zBtWr9s6A==}
 
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
@@ -2023,6 +2075,9 @@ packages:
     resolution: {integrity: sha512-3GuObel8h7Kqdjt0gxkEzaifHTqLVW56Y/bjN7PSQtkKr0w3V/QYSdt6QWYtd7A1xUtYQigtdUfgj1RvWVtorw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
+
+  rope-sequence@1.3.4:
+    resolution: {integrity: sha512-UT5EDe2cu2E/6O4igUr5PSFs23nvvukicWHx6GnOPlHAiiYbzNuCRQCuiUdHJQcqKalLKlrYJnjY0ySGsXNQXQ==}
 
   rspack-vue-loader@17.4.4:
     resolution: {integrity: sha512-T4rkTZWg9hC7DZapTaJcIphser4ogsTffH/rwnX0pwMpNKjv1XKLBPa5Icd/xNPOh1NiKVxoxcT+gb8NQliukA==}
@@ -2172,6 +2227,11 @@ packages:
 
   semver@7.7.2:
     resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -2451,6 +2511,9 @@ packages:
       typescript:
         optional: true
 
+  w3c-keyname@2.2.8:
+    resolution: {integrity: sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ==}
+
   watchpack@2.4.4:
     resolution: {integrity: sha512-c5EGNOiyxxV5qmTtAB7rbiXxi1ooX1pQKMLX/MIabJjRA0SJBQOjKF+KSVfHkr9U1cADPon0mRiVe/riyaiDUA==}
     engines: {node: '>=10.13.0'}
@@ -2679,17 +2742,12 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@halo-dev/api-client@2.21.0(axios@1.13.1)':
+  '@halo-dev/api-client@2.25.2(axios@1.13.1)':
     dependencies:
       axios: 1.13.1
       qs: 6.14.0
 
-  '@halo-dev/api-client@2.21.1(axios@1.13.1)':
-    dependencies:
-      axios: 1.13.1
-      qs: 6.14.0
-
-  '@halo-dev/components@2.21.0(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))':
+  '@halo-dev/components@2.25.2(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))':
     dependencies:
       floating-vue: 5.2.2(vue@3.5.22(typescript@4.7.4))
       vue: 3.5.22(typescript@4.7.4)
@@ -2697,23 +2755,27 @@ snapshots:
     transitivePeerDependencies:
       - '@nuxt/kit'
 
-  '@halo-dev/console-shared@2.21.0(axios@1.13.1)(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))':
+  '@halo-dev/ui-plugin-bundler-kit@2.25.2(@rsbuild/core@1.6.0)(@rsbuild/plugin-vue@1.2.0(@rsbuild/core@1.6.0)(vue@3.5.22(typescript@4.7.4)))(@vitejs/plugin-vue@6.0.1(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))(vue@3.5.22(typescript@4.7.4)))(axios@1.13.1)(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))':
     dependencies:
-      '@halo-dev/api-client': 2.21.0(axios@1.13.1)
-      vue: 3.5.22(typescript@4.7.4)
-      vue-router: 4.5.1(vue@3.5.22(typescript@4.7.4))
-    transitivePeerDependencies:
-      - axios
-
-  '@halo-dev/ui-plugin-bundler-kit@2.21.2(@rsbuild/core@1.6.0)(@rsbuild/plugin-vue@1.2.0(@rsbuild/core@1.6.0)(vue@3.5.22(typescript@4.7.4)))(@vitejs/plugin-vue@6.0.1(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))(vue@3.5.22(typescript@4.7.4)))(axios@1.13.1)(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))':
-    dependencies:
-      '@halo-dev/api-client': 2.21.1(axios@1.13.1)
+      '@halo-dev/api-client': 2.25.2(axios@1.13.1)
       '@rsbuild/core': 1.6.0
       '@rsbuild/plugin-vue': 1.2.0(@rsbuild/core@1.6.0)(vue@3.5.22(typescript@4.7.4))
       '@vitejs/plugin-vue': 6.0.1(vite@7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0))(vue@3.5.22(typescript@4.7.4))
-      js-yaml: 4.1.0
+      js-yaml: 4.2.0
+      semver: 7.8.5
       vite: 7.1.12(@types/node@16.18.126)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.42.0)
     transitivePeerDependencies:
+      - axios
+
+  '@halo-dev/ui-shared@2.25.2(@tiptap/pm@3.27.1)(axios@1.13.1)(vue-router@4.5.1(vue@3.5.22(typescript@4.7.4)))(vue@3.5.22(typescript@4.7.4))':
+    dependencies:
+      '@halo-dev/api-client': 2.25.2(axios@1.13.1)
+      '@tiptap/core': 3.27.1(@tiptap/pm@3.27.1)
+      mitt: 3.0.1
+      vue: 3.5.22(typescript@4.7.4)
+      vue-router: 4.5.1(vue@3.5.22(typescript@4.7.4))
+    transitivePeerDependencies:
+      - '@tiptap/pm'
       - axios
 
   '@humanwhocodes/config-array@0.13.0':
@@ -3019,6 +3081,26 @@ snapshots:
   '@swc/helpers@0.5.17':
     dependencies:
       tslib: 2.8.1
+
+  '@tiptap/core@3.27.1(@tiptap/pm@3.27.1)':
+    dependencies:
+      '@tiptap/pm': 3.27.1
+
+  '@tiptap/pm@3.27.1':
+    dependencies:
+      prosemirror-changeset: 2.4.1
+      prosemirror-commands: 1.7.1
+      prosemirror-dropcursor: 1.8.2
+      prosemirror-gapcursor: 1.4.1
+      prosemirror-history: 1.5.0
+      prosemirror-inputrules: 1.5.1
+      prosemirror-keymap: 1.2.3
+      prosemirror-model: 1.25.9
+      prosemirror-schema-list: 1.5.1
+      prosemirror-state: 1.4.4
+      prosemirror-tables: 1.8.5
+      prosemirror-transform: 1.12.0
+      prosemirror-view: 1.41.9
 
   '@tybys/wasm-util@0.10.1':
     dependencies:
@@ -4049,6 +4131,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
+  js-yaml@4.2.0:
+    dependencies:
+      argparse: 2.0.1
+
   json-buffer@3.0.1: {}
 
   json-parse-even-better-errors@2.3.1: {}
@@ -4446,6 +4532,8 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
+  mitt@3.0.1: {}
+
   mri@1.2.0: {}
 
   ms@2.1.3: {}
@@ -4483,6 +4571,8 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
       word-wrap: 1.2.5
+
+  orderedmap@2.1.1: {}
 
   p-limit@3.1.0:
     dependencies:
@@ -4534,6 +4624,80 @@ snapshots:
   prettier@2.8.8: {}
 
   property-information@6.5.0: {}
+
+  prosemirror-changeset@2.4.1:
+    dependencies:
+      prosemirror-transform: 1.12.0
+
+  prosemirror-commands@1.7.1:
+    dependencies:
+      prosemirror-model: 1.25.9
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
+
+  prosemirror-dropcursor@1.8.2:
+    dependencies:
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
+      prosemirror-view: 1.41.9
+
+  prosemirror-gapcursor@1.4.1:
+    dependencies:
+      prosemirror-keymap: 1.2.3
+      prosemirror-model: 1.25.9
+      prosemirror-state: 1.4.4
+      prosemirror-view: 1.41.9
+
+  prosemirror-history@1.5.0:
+    dependencies:
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
+      prosemirror-view: 1.41.9
+      rope-sequence: 1.3.4
+
+  prosemirror-inputrules@1.5.1:
+    dependencies:
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
+
+  prosemirror-keymap@1.2.3:
+    dependencies:
+      prosemirror-state: 1.4.4
+      w3c-keyname: 2.2.8
+
+  prosemirror-model@1.25.9:
+    dependencies:
+      orderedmap: 2.1.1
+
+  prosemirror-schema-list@1.5.1:
+    dependencies:
+      prosemirror-model: 1.25.9
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
+
+  prosemirror-state@1.4.4:
+    dependencies:
+      prosemirror-model: 1.25.9
+      prosemirror-transform: 1.12.0
+      prosemirror-view: 1.41.9
+
+  prosemirror-tables@1.8.5:
+    dependencies:
+      prosemirror-keymap: 1.2.3
+      prosemirror-model: 1.25.9
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
+      prosemirror-view: 1.41.9
+
+  prosemirror-transform@1.12.0:
+    dependencies:
+      prosemirror-model: 1.25.9
+
+  prosemirror-view@1.41.9:
+    dependencies:
+      prosemirror-model: 1.25.9
+      prosemirror-state: 1.4.4
+      prosemirror-transform: 1.12.0
 
   proxy-from-env@1.1.0: {}
 
@@ -4656,6 +4820,8 @@ snapshots:
       '@rollup/rollup-win32-x64-gnu': 4.52.5
       '@rollup/rollup-win32-x64-msvc': 4.52.5
       fsevents: 2.3.3
+
+  rope-sequence@1.3.4: {}
 
   rspack-vue-loader@17.4.4(vue@3.5.22(typescript@4.7.4))(webpack@5.102.1):
     dependencies:
@@ -4786,6 +4952,8 @@ snapshots:
   select-files@1.0.1: {}
 
   semver@7.7.2: {}
+
+  semver@7.8.5: {}
 
   serialize-javascript@6.0.2:
     dependencies:
@@ -5053,6 +5221,8 @@ snapshots:
       '@vue/shared': 3.5.22
     optionalDependencies:
       typescript: 4.7.4
+
+  w3c-keyname@2.2.8: {}
 
   watchpack@2.4.4:
     dependencies:

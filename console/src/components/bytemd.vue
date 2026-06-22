@@ -10,7 +10,7 @@ import {
 import { watch, onMounted, ref } from "vue";
 import math from "@bytemd/plugin-math";
 import breaks from "@bytemd/plugin-breaks";
-import type { AttachmentLike } from "@halo-dev/console-shared";
+import type { AttachmentLike } from "@halo-dev/ui-shared";
 import { consoleApiClient } from "@halo-dev/api-client";
 import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";

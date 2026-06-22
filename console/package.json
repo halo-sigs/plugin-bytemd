@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "rsbuild build --env-mode development --watch",
     "build": "rsbuild build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "type-check": "vue-tsc --noEmit -p tsconfig.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "test:unit": "echo 'No tests'"
   },
@@ -11,9 +11,9 @@
     "@bytemd/plugin-gfm": "^1.22.0",
     "@bytemd/plugin-math": "^1.22.0",
     "@bytemd/vue-next": "^1.22.0",
-    "@halo-dev/api-client": "^2.21.1",
-    "@halo-dev/components": "^2.21.0",
-    "@halo-dev/console-shared": "^2.21.0",
+    "@halo-dev/api-client": "^2.25.2",
+    "@halo-dev/components": "^2.25.2",
+    "@halo-dev/ui-shared": "^2.25.2",
     "@susisu/mte-kernel": "^2.1.1",
     "@vueuse/core": "9",
     "axios": "^1.13.1",
@@ -23,7 +23,7 @@
     "vue": "^3.5.22"
   },
   "devDependencies": {
-    "@halo-dev/ui-plugin-bundler-kit": "2.21.2",
+    "@halo-dev/ui-plugin-bundler-kit": "^2.25.2",
     "@rsbuild/core": "^1.6.0",
     "@rsbuild/plugin-sass": "^1.4.0",
     "@rushstack/eslint-patch": "^1.14.1",
