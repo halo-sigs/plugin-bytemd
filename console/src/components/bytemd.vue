@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { Editor } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
-import { markdownTable, pluginSlug, vim } from "../plugins";
+import {
+  markdownTable,
+  mermaidPlugin,
+  pluginSlug,
+  renderMermaidInHtml,
+  vim,
+} from "../plugins";
 import {
   getProcessor,
   type BytemdEditorContext,
@@ -19,6 +25,7 @@ import "../styles/main.scss";
 const basePlugins: BytemdPlugin[] = [
   gfm(),
   pluginSlug(),
+  mermaidPlugin(),
   math(),
   breaks(),
   {
@@ -43,6 +50,7 @@ const createPlugins = (useVimKeymap = false): BytemdPlugin[] => {
 };
 
 const plugins = ref<BytemdPlugin[]>(createPlugins());
+let contentRenderVersion = 0;
 
 const VIM_KEYMAP_NAME = "vim";
 
@@ -93,11 +101,16 @@ onMounted(async () => {
 
 watch(
   () => props.raw,
-  (value) => {
+  async (value) => {
+    const version = ++contentRenderVersion;
     const processor = getProcessor({ plugins: plugins.value }).processSync(
       value
     );
-    emit("update:content", processor.toString());
+    const content = await renderMermaidInHtml(processor.toString());
+
+    if (version === contentRenderVersion) {
+      emit("update:content", content);
+    }
   },
   {
     immediate: true,
