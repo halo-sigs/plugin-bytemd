@@ -17,7 +17,7 @@ import { watch, onMounted, ref } from "vue";
 import math from "@bytemd/plugin-math";
 import breaks from "@bytemd/plugin-breaks";
 import type { AttachmentLike } from "@halo-dev/ui-shared";
-import { consoleApiClient } from "@halo-dev/api-client";
+import { consoleApiClient, ucApiClient } from "@halo-dev/api-client";
 import "bytemd/dist/index.css";
 import "github-markdown-css/github-markdown-light.css";
 import "../styles/main.scss";
@@ -79,6 +79,61 @@ const handleChange = (v: string) => {
   if (v !== props.raw) {
     emit("update", v);
   }
+};
+
+type UploadContext = "console" | "uc";
+
+const matchesPathPrefix = (pathname: string, prefix: string) => {
+  return pathname === prefix || pathname.startsWith(`${prefix}/`);
+};
+
+const getUploadContext = (): UploadContext => {
+  const { pathname } = window.location;
+
+  if (matchesPathPrefix(pathname, "/console")) {
+    return "console";
+  }
+
+  if (matchesPathPrefix(pathname, "/uc")) {
+    return "uc";
+  }
+
+  throw new Error(`Unsupported upload context: ${pathname}`);
+};
+
+const uploadAttachment = async (file: File, context: UploadContext) => {
+  if (context === "console") {
+    const { data } =
+      await consoleApiClient.storage.attachment.uploadAttachmentForConsole({
+        file,
+      });
+    return data;
+  }
+
+  const { data } = await ucApiClient.storage.attachment.uploadAttachmentForUc({
+    file,
+  });
+  return data;
+};
+
+const handleUploadImages = async (files: File[]) => {
+  const uploadContext = getUploadContext();
+
+  return await Promise.all(
+    files.map(async (file) => {
+      const data = await uploadAttachment(file, uploadContext);
+      const url = data.status?.permalink;
+
+      if (!url) {
+        throw new Error("Uploaded attachment has no permalink.");
+      }
+
+      return {
+        url,
+        alt: data.spec.displayName || file.name,
+      };
+    })
+  );
 };
 
 onMounted(async () => {
@@ -162,7 +217,12 @@ const onAttachmentSelect = (attachments: AttachmentLike[]) => {
 
 <template>
   <section class="bytemd-wrapper">
-    <Editor :value="raw" :plugins="plugins" @change="handleChange" />
+    <Editor
+      :value="raw"
+      :plugins="plugins"
+      :upload-images="handleUploadImages"
+      @change="handleChange"
+    />
     <AttachmentSelectorModal
       v-if="attachmentSelectorModal"
       @select="onAttachmentSelect"
