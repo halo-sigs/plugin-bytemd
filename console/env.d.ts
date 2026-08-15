@@ -1,4 +1,4 @@
-/// <reference types="@rsbuild/core" />
+/// <reference types="vite/client" />
 
 declare module "*.vue" {
   import Vue from "vue";
