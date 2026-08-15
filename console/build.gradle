@@ -5,6 +5,10 @@ plugins {
 
 group 'run.halo.bytemd.ui'
 
+node {
+    pnpmVersion = '10.34.5'
+}
+
 tasks.register('pnpmBuild', PnpmTask) {
     group = 'build'
     description = 'Build the UI project using pnpm'
@@ -19,8 +23,8 @@ tasks.register('pnpmBuild', PnpmTask) {
 
 tasks.register('pnpmCheck', PnpmTask) {
     group = 'verification'
-    description = 'Run unit tests for the UI project using pnpm'
-    args = ['test:unit']
+    description = 'Run checks for the UI project using pnpm'
+    args = ['check']
     dependsOn tasks.named('pnpmInstall')
 }
 

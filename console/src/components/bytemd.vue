@@ -83,6 +83,12 @@ const handleChange = (v: string) => {
 
 type UploadContext = "console" | "uc";
 
+interface BytemdPluginConfig {
+  basic?: {
+    keymap?: string;
+  };
+}
+
 const matchesPathPrefix = (pathname: string, prefix: string) => {
   return pathname === prefix || pathname.startsWith(`${prefix}/`);
 };
@@ -144,12 +150,12 @@ onMounted(async () => {
       }
     );
 
-    const configMapData = data as Record<string, any>;
+    const configMapData = data as BytemdPluginConfig;
 
     if (configMapData?.basic?.keymap === VIM_KEYMAP_NAME) {
       plugins.value = createPlugins(true);
     }
-  } catch (e) {
+  } catch {
     // ignore this
   }
 });
@@ -185,7 +191,7 @@ const onAttachmentSelect = (attachments: AttachmentLike[]) => {
       editorContext.value?.appendBlock(`![](${attachment})`);
     } else if ("url" in attachment) {
       editorContext.value?.appendBlock(
-        `![${attachment.type}](${attachment.url})`
+        `![${attachment.alt || attachment.mediaType || ""}](${attachment.url})`
       );
     } else if ("spec" in attachment) {
       const { mediaType, displayName } = attachment.spec;

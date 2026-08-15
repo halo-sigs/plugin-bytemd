@@ -86,7 +86,7 @@ const MERMAID_THEME_COLOR_REPLACEMENTS = Object.entries(
 ).map(([key, color]) => {
   return [color, `var(--bytemd-mermaid-${toKebabCase(key)}, ${color})`] as [
     string,
-    string
+    string,
   ];
 });
 
