@@ -1,12 +1,12 @@
 import type { BytemdPlugin, BytemdEditorContext } from "bytemd";
-import rehypeSlug from "rehype-slug";
+import rehypeSlug from "rehype-slug-custom-id";
 import useVim from "codemirror-ssr/keymap/vim";
 export { markdownTable } from "./markdown-table";
 export { mermaidPlugin, renderMermaidInHtml } from "./mermaid";
 
 export function pluginSlug(): BytemdPlugin {
   return {
-    rehype: (processor) => processor.use(rehypeSlug),
+    rehype: (processor) => processor.use(rehypeSlug, { enableCustomId: true }),
   };
 }
 
