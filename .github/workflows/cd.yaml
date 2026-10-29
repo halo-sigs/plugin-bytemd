@@ -15,5 +15,5 @@ jobs:
     with:
       app-id: app-HTyhC
       ui-path: console
-      node-version: "20"
-      pnpm-version: "10"
+      node-version: "24"
+      pnpm-version: "12"

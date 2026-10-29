@@ -30,8 +30,8 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@halo-dev/ui-plugin-bundler-kit": "^2.26.0",
-    "@types/node": "^20.19.43",
-    "@vitejs/plugin-vue": "^6.0.8",
+    "@types/node": "^24.19.2",
+    "@vitejs/plugin-vue": "^6.0.10",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.9.0",
     "@vue/tsconfig": "^0.9.1",
@@ -39,10 +39,10 @@
     "eslint": "^10.8.1",
     "eslint-plugin-vue": "^10.10.0",
     "prettier": "^3.9.6",
-    "sass-embedded": "^1.102.0",
+    "sass-embedded": "^1.107.0",
     "typescript": "~6.0.3",
-    "vite": "^8.2.1",
+    "vite": "^8.3.5",
     "vue-tsc": "^3.3.10"
   },
-  "packageManager": "pnpm@10.34.5"
+  "packageManager": "pnpm@12.16.1"
 }

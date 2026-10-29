@@ -6,7 +6,7 @@ plugins {
 group 'run.halo.bytemd.ui'
 
 node {
-    pnpmVersion = '10.34.5'
+    pnpmVersion = '12'
 }
 
 tasks.register('pnpmBuild', PnpmTask) {
