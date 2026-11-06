@@ -16,3 +16,8 @@ spec:
               value: "default"
             - label: "Vim"
               value: "vim"
+        - $formkit: checkbox
+          name: allowInlineStyles
+          label: "允许 HTML 内联样式"
+          value: false
+          help: "保留 HTML 标签的 style 属性，仅适用于受信任作者。内联 CSS 不会被清洗，可能影响页面布局或加载外部资源；脚本、事件属性和其他标签限制保持不变。修改后请重新打开编辑器，重新保存文章以更新 HTML。"
